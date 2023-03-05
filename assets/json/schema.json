@@ -1,0 +1,38 @@
+{
+    "@type": "WebPage",
+    "@context": "https://schema.org",
+    "name": "Meteo: servizio online di meteorologia",
+    "description": "Sito online per il meteo mondiale",
+    "author":"Riccardo Delfrate 987362",
+    "mainEntity": {
+        "@type": "WebPage",
+        "mainContentOfPage": {
+            "@type": "WebPageElement",
+            "name": "Meteo Italia U.S.A. Germania"
+        },
+        "contentLocation": [
+            {
+                "@type": "Place",
+                "name": "Italia"
+             
+            },
+            {
+                "@type": "Place",
+                "name": "USA"
+            },
+            {
+                "@type": "Place",
+                "name": "Deutschland"
+            }
+        ]
+    },
+    "publisher":{
+        "@type": "CollegeOrUniversity",
+        "name": "Unimi"
+    },
+    "editor": {
+        "@type": "Person",
+        "name": "Riccardo Delfrate 987362 Unimi: Sicurezza dei sistemi e delle reti informatiche"
+    },
+    "copyrightYear": "2022"
+}

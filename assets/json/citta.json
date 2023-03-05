@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Roma",
+        "capital": true,
+        "lat": "41.8933203",
+        "lon": "12.4829321"
+    },
+    {
+        "name": "Washington",
+        "capital": true,
+        "lat": "38.8950368",
+        "lon": "-77.0365427"
+    },
+    {
+        "name": "Berlino",
+        "capital": true,
+        "lat": "52.5170365",
+        "lon": "13.3888599"
+    },
+    {
+        "name": "Milano",
+        "capital": false,
+        "lat": "45.4642162",
+        "lon": "9.1898182"
+    },
+    {
+        "name": "Boston",
+        "capital": false,
+        "lat": "42.2437",
+        "lon": "-71.0582912"
+    },
+    {
+        "name": "NewYork",
+        "capital": false,
+        "lat": "40.7127281",
+        "lon": "-74.0060152"
+    },
+    {
+        "name": "Francoforte",
+        "capital": false,
+        "lat": "50.1106444&",
+        "lon": "8.6820917"
+    },
+    {
+        "name": "Amburgo",
+        "capital": false,
+        "lat": "53.550341",
+        "lon": "10.000654"
+    },
+    {
+        "name": "Firenze",
+        "capital": false,
+        "lat": "43.7698712",
+        "lon": "11.2555757"
+    }
+]
