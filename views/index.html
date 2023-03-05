@@ -1,0 +1,386 @@
+<!Doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sito online per il meteo mondiale">
+  <meta name="author" content="Riccardo Delfrate">
+  <title>987361 Meteo</title>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./css/bootstrap-dark.css" id="darkCSS">
+  <link rel="stylesheet" href="./css/bootstrap.min.css" id="defCSS">
+
+
+  <!-- CSS e Json-->
+  <link type="application/ld+json" rel="canonical" href="./json/schema.json">
+  <link href="./css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="./css/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="./css/map.css" />
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="./css/blog.css" rel="stylesheet">
+</head>
+
+<body itemscope="" itemtype="https://schema.org/WebPage">
+
+  <div class="container" itemprop="mainContentOfPage">
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1"></div>
+        <div class="col-4 text-center">
+          <h1 class="blog-header-logo">Sunny.it</h1>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+        </div>
+      </div>
+    </header>
+
+
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-between">
+        <a class="p-2 link-secondary" href="#Italia">Italia</a>
+        <a class="p-2 link-secondary" href="#Usa">U.S.A.</a>
+        <a class="p-2 link-secondary" href="#Germania">Germania</a>
+        <div class="form-check form-switch p-2 link-secondary">
+          <input class="form-check-input" type="checkbox" role="switch" id="darkMode">
+          <label class="form-check-label" for="darkMode"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+              <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z">
+              </path>
+            </svg></label>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-12 fst-italic">Mondo</h1>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-7 text-black">
+        <div
+          class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-info" itemprop="contentLocation">World</strong>
+            <h3 class="mb-0">Inserisci una città</h3>
+            <br>
+            <div class="input-group">
+              <div class="form-outline col-lg-8">
+                <input type="search" class="form-control cerca" id="searchedText" />
+              </div>
+              <button type="button" class="btn btn-dark cercaBot">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                  id="search" viewBox="0 0 16 16">
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 text-black">
+        <div
+          class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-info" itemprop="contentLocation">World</strong>
+            <h3 class="mb-0">Suggerite</h3>
+            <a href="#Milano" class="link-dark">Milano</a>
+            <a href="#Firenze" class="link-dark">Firenze</a>
+            <a href="#Boston" class="link-dark">Boston</a>
+            <a href="#NewYork" class="link-dark">New York</a>
+            <a href="#Francoforte" class="link-dark">Francoforte</a>
+            <a href="#Amburgo" class="link-dark">Amburgo</a>
+
+          </div>
+        </div>
+
+      </div>
+      <div hidden class="row featurette mb-2 ps-2 pe-2" id="cittaNascosto">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1"><a id="city-name">Seleziona città</a></h2>
+          <h5>Temperatura: <a id="weather-temp-city"></a></h5>
+          <h5>Percepita: <a id="weather-temp-percepita-city"></a></h5>
+          <h5>Pressione: <a id="weather-press-city"></a></h5>
+          <h5>Umidità: <a id="weather-umi-city"></a></h5>
+          <h5>Vento: <a id="weather-vento-city"></a></h5>
+          <!-- js in search_world -->
+          <canvas class="my-4 w-100" id="myChart" width="900" height="300"></canvas>
+
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" alt="Immagine citta cercata" id="imageSearchedPlace" src="#">
+        </div>
+
+      </div>
+      <div class="col-md-12" id="map"></div>
+
+
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-12 fst-italic" id="Italia">Italia</h1>
+        </div>
+      </div>
+
+      <div class="row featurette mb-2 ps-2 pe-2">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">Roma</h2>
+          <h5>Temperatura: <span class="meteoData"><a id="weather-temp-Roma"></a></span></h5>
+          <h5>Percepita: <span class="meteoData"><a id="weather-temp-percepita-Roma"></a></span></h5>
+          <h5>Pressione: <a id="weather-press-Roma"></a></h5>
+          <h5>Umidità: <a id="weather-umi-Roma"></a></h5>
+          <h5>Vento: <a id="weather-vento-Roma"></a></h5>
+          <!-- js in get meteo -->
+          <canvas class="my-4 w-100" id="myChart2" width="900" height="300"></canvas>
+
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" alt="Immagine roma"
+            data-src="https://images.unsplash.com/photo-1583422095309-55daabc9cc78?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880">
+
+        </div>
+      </div>
+      <hr class="featurette-divider">
+
+      <div class="row mb-2">
+        <div class="col-md-6 text-black">
+          <div id="Milano"
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary" itemprop="contentLocation">Italia</strong>
+              <h3 class="mb-0">Milano</h3>
+              <br>
+              <h6>Temperatura: <a id="weather-temp-Milano"></a></h6>
+              <h6>Percepita: <a id="weather-temp-percepita-Milano"></a></h6>
+
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250"
+                data-src="https://images.unsplash.com/photo-1594755260889-29d5fb8e2d1f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735"
+                alt="Immagine Milano">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-black">
+          <div id="Firenze"
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary" itemprop="contentLocation">Italia</strong>
+              <h3 class="mb-0">Firenze</h3>
+              <br>
+              <h6>Temperatura: <a id="weather-temp-Firenze"></a></h6>
+              <h6>Percepita: <a id="weather-temp-percepita-Firenze"></a></h6>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250"
+                data-src="https://images.unsplash.com/photo-1598780057934-1df44d2fa63d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                alt="Immagine Milano">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-12 fst-italic" id="Usa">United states of America</h1>
+        </div>
+      </div>
+      <div class="row featurette mb-2 ps-2 pe-2">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">Washington</h2>
+          <h5>Temperatura: <span class="meteoData"><a id="weather-temp-Washington"></a></span></h5>
+          <h5>Percepita: <span class="meteoData"><a id="weather-temp-percepita-Washington"></a></span></h5>
+          <h5>Pressione: <a id="weather-press-Washington"></a></h5>
+          <h5>Umidità: <a id="weather-umi-Washington"></a></h5>
+          <h5>Vento: <a id="weather-vento-Washington"></a></h5>
+          <canvas class="my-4 w-100" id="myChart3" width="900" height="300"></canvas>
+
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" alt="Washington"
+            data-src="https://images.unsplash.com/photo-1616697158585-b815801afeb9?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=846">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+      <div class="row mb-2">
+        <div class="col-md-6 text-black">
+          <div id="Boston"
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success" itemprop="contentLocation">Usa</strong>
+              <h3 class="mb-0">Boston</h3>
+              <br>
+              <h6>Temperatura: <a id="weather-temp-Boston"></a></h6>
+              <h6>Percepita: <a id="weather-temp-percepita-Boston"></a></h6>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250"
+                data-src="https://images.unsplash.com/photo-1610891068146-87e9689d0f45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+                alt="Immagine Boston">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-black">
+          <div id="NewYork"
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success" itemprop="contentLocation">Usa</strong>
+              <h3 class="mb-0">New York</h3>
+              <br>
+              <h6>Temperatura: <a id="weather-temp-NewYork"></a></h6>
+              <h6>Percepita: <a id="weather-temp-percepita-NewYork"></a></h6>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250"
+                data-src="https://images.unsplash.com/flagged/photo-1575597255483-55f2afb6f42c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687"
+                alt="Immagine NewYork">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-12 fst-italic" id="Germania">Germania</h1>
+        </div>
+      </div>
+      <div class="row featurette mb-2 ps-2 pe-2">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">Berlino</h2>
+          <h5>Temperatura: <span class="meteoData"><a id="weather-temp-Berlino"></a></span></h5>
+          <h5>Percepita: <span class="meteoData"><a id="weather-temp-percepita-Berlino"></a></span></h5>
+          <h5>Pressione: <a id="weather-press-Berlino"></a></h5>
+          <h5>Umidità: <a id="weather-umi-Berlino"></a></h5>
+          <h5>Vento: <a id="weather-vento-Berlino"></a></h5>
+          <canvas class="my-4 w-100" id="myChart4" width="900" height="300"></canvas>
+
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" alt="Berlino"
+            data-src="https://images.unsplash.com/photo-1572107433787-4256ceba42c9?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+
+
+      <div class="row mb-2">
+        <div class="col-md-6 text-black">
+          <div id="Francoforte"
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-danger" itemprop="contentLocation">Deutschland</strong>
+              <h3 class="mb-0">Francoforte</h3>
+              <br>
+              <h6>Temperatura: <a id="weather-temp-Francoforte"></a></h6>
+              <h6>Percepita: <a id="weather-temp-percepita-Francoforte"></a></h6>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250"
+                data-src="https://images.unsplash.com/photo-1565321326010-48a2c4ab4aae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735"
+                alt="Immagine Francoforte">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-black">
+          <div id="Amburgo"
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-danger" itemprop="contentLocation">Deutschland</strong>
+              <h3 class="mb-0">Amburgo</h3>
+              <br>
+              <h6>Temperatura: <a id="weather-temp-Amburgo"></a></h6>
+              <h6>Percepita: <a id="weather-temp-percepita-Amburgo"></a></h6>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img width="200" height="250"
+                data-src="https://images.unsplash.com/photo-1593508310024-ccc7ed563f8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+                alt="Immagine Amburgo">
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+
+
+  <footer class="blog-footer bg-dark">
+    <p itemprop="editor">Riccardo Delfrate 987362<br>Unimi: Sicurezza dei sistemi e delle reti informatiche</p>
+
+    <p>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+        </svg>
+      </a>
+    </p>
+  </footer>
+
+  <script id="worker" type="text/javascript-worker">
+    self.addEventListener('message', async event => {
+      const imageURL = event.data
+      //console.log('WEB WORKER IMG')
+      //console.log(imageURL)
+      const response = await fetch(imageURL)
+    
+      const blob = await response.blob()
+  
+      // Send the image data to the UI thread!
+      self.postMessage({
+        imageURL: imageURL,
+        blob: blob,
+      })
+    })
+  </script>
+  <script src="./js/getMeteo.js"></script>
+  <script src="./js/css_switch.js"></script>
+  <script src="./js/rememberDark.js"></script>
+  <script src="./js/search_world.js"></script>
+  <script src="./js/webWorker.js"></script>
+  <script src="./js/leaflet.js"></script>
+  <script src="./js/leaflet-openweathermap.js"></script>
+  <script src="./js/map.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
